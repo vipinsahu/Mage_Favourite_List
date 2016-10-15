@@ -1,0 +1,47 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">   
+<default>
+	  <reference name="head" >
+      <action method="addCss" ifconfig="favouritelist/favouritelistsetting/enable">
+	  <stylesheet>favouritelist/favouritelist.css</stylesheet>
+	  </action>
+	 
+     </reference>
+		<reference name="top.links">
+		   <block type="favouritelist/links" name="favouritelist_link" >
+             <action method="addFavtLink" ifconfig="favouritelist/favouritelistsetting/enable"></action>
+			 </block>
+			
+		</reference>
+	</default>
+  <favouritelist_index_index>  
+    <update handle="customer_account" />  
+      <reference name="content">   
+      <block type="favouritelist/index" name="favouritelist_index" template="favouritelist/index.phtml"/>   
+    </reference>   
+  </favouritelist_index_index>   
+  <customer_account>
+	<reference name="customer_account_navigation">
+		<action method="addLink" translate="label" module="favouritelist" ifconfig="favouritelist/favouritelistsetting/enable"><name>favouritelist</name><path>favouritelist/</path><label>My Favourite List</label></action>
+	</reference>
+  </customer_account>
+  
+<catalog_product_view>
+    <reference name="product.info.addto">
+        <action method="setTemplate" ifconfig="favouritelist/favouritelistsetting/enable">
+            <template>favouritelist/addto.phtml</template>
+        </action>
+    </reference>
+  </catalog_product_view>
+  <favouritelist_index_configure translate="label">
+        <label>Configure favouritelist Item</label>
+        <update handle="catalog_product_view" />
+		<reference name="product.info.options.wrapper.bottom">
+            <action method="unsetChild"><name>product.info.addto</name></action>
+            <action method="append"><block>product.info.addto</block></action>
+        </reference>
+       
+    </favouritelist_index_configure>
+ 
+</layout>   
+	

@@ -1,0 +1,15 @@
+.customer-account #favouritelist-view-form table {
+    width: 100%;
+}
+.customer-account #favouritelist-view-form table .customer-favouritelist-item-info {
+    padding:0 20px;
+    vertical-align: top;
+}
+
+.customer-account td.customer-favouritelist-item-image {
+    width: 113px;
+}
+.customer-favouritelist-item-cart .link-edit.button.button-secondary {
+    margin-top: 10px;
+    width: 54%;
+}
